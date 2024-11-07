@@ -1,14 +1,9 @@
 import {View, Text, TouchableOpacity, Image} from "react-native"
 import styles from "./popularjobcard.style"
+import { checkImageURL } from "../../../../../utils"
 
 const PopularJobCard = ({item, selectedJob, handleCardPress}) => {
-    const checkImageURL = (url) => {
-        if(!url) return false
-        else {
-            const pattern = new RegExp('^https?:\\/\\/.+\\.(png|jpg|jpeg|bmp|gif|webp)$', 'i')
-            return pattern.test(url)
-        }
-    }
+    
     return(
         <TouchableOpacity 
             style = {styles.container(selectedJob, item)}
@@ -29,6 +24,12 @@ const PopularJobCard = ({item, selectedJob, handleCardPress}) => {
                 <Text style = {styles.jobName(selectedJob, item)} numberOfLines = {1}>
                     {item.job_title}
                 </Text>
+            </View>
+            <View style = {styles.infoWrapper}>
+                <Text style = {styles.publisher(selectedJob,item)}>
+                    {item?.job_publisher} -
+                </Text>
+                <Text style = {styles.location}>{item.job_country}</Text>
             </View>
         </TouchableOpacity>
     )
