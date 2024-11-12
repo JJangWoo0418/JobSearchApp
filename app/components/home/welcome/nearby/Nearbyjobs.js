@@ -23,7 +23,7 @@ const Nearbyjobs = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerTitle}>Popularjobs</Text>
+                <Text style={styles.headerTitle}>Nearbyjobs</Text>
                 <TouchableOpacity>
                     <Text style={styles.headerBtn}>Show all</Text>
                 </TouchableOpacity>
@@ -38,11 +38,11 @@ const Nearbyjobs = () => {
                         renderItem={({item}) => (
                             <NearbyjobCard 
                                 item={item} 
-                                handleCardPress={() => router.push(`/job-detail/${job.job_id}`)}    
+                                handleCardPress={() => router.push(`/job-details/${item.job_id}`)}    
                             />
                         )}
                         contentContainerStyle={{ columnGap: SIZES.medium }}
-                        keyExtractor={item =>`nearby-job-${item?.job}`}
+                        keyExtractor={item =>`nearby-job-${item?.job_id}`}
                     />
                 )}
             </View>
