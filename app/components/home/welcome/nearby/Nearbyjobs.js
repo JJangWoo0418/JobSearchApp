@@ -41,7 +41,7 @@ const Nearbyjobs = () => {
                                 handleCardPress={() => router.push(`/job-details/${item.job_id}`)}    
                             />
                         )}
-                        contentContainerStyle={{ columnGap: SIZES.medium }}
+                        contentContainerStyle={{columnGap: SIZES.medium }}
                         keyExtractor={item =>`nearby-job-${item?.job_id}`}
                     />
                 )}

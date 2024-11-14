@@ -30,7 +30,7 @@ const Home = () => {
                 <View style={{ fles: 1, padding: SIZES.medium }}>
                     <Welcome />
                     <Popularjobs />
-                    <Nearbyjobs />
+                    <Nearbyjobs/>
                 </View>
             </ScrollView>
         </SafeAreaView>
