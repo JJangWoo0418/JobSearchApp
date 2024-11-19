@@ -2,7 +2,7 @@ import { useRouter, Stack, useLocalSearchParams } from "expo-router";
 import useFetch from "../../hook/useFetch";
 import { View, Text, SafeAreaView, ScrollView, ActivityIndicator, RefreshControl} from 'react-native'
 import { COLORS,icons,SIZES } from "../../constants";
-import { ScreenHeaderBtn } from "../components";
+import { ScreenHeaderBtn, Company } from "../components";
 import { useCallback, useState} from "react";
 
 const JobDetails = () =>{
@@ -49,7 +49,23 @@ const JobDetails = () =>{
                     onRefresh={onRefresh}
                 />}
             >
-                
+                {isLoading ? (
+                    <ActivityIndicator size="large" color={COLORS.primary} />
+                ) : error ? (
+                    <Text>Something Wrong</Text>
+                ) : data.length === 0 ? (
+                    <Text>No data available</Text>
+                ) : (
+                    <View style = {{padding:SIZES.medium,paddingBottom:100}}>
+                        <Company
+                            companyLogo={data[0].employer_log}
+                            jobTitle={data[0].job_title}
+                            companyName={data[0].employer_name}
+                            location={data[0].job_location}
+                        />
+                    </View>
+                )
+            }
             </ScrollView>
         </SafeAreaView>
     )
